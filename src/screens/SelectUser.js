@@ -2,16 +2,14 @@ import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 import {black, darkGray, white} from '../utils/Colors';
 import {useNavigation} from '@react-navigation/native';
+import strings from '../constants/strings';
 const SelectUser = () => {
   const navigation = useNavigation();
   return (
     <View style={myStyle.container}>
       <View style={myStyle.header}>
-        <Text style={myStyle.title}>Who is Watching ?</Text>
-        <Text
-          style={[myStyle.title, {position: 'absolute', right: 20, top: 18}]}>
-          Edit
-        </Text>
+        <Text style={myStyle.title}>{strings.whoIsWatching}</Text>
+        <Text style={[myStyle.title, myStyle.editText]}>{strings.edit}</Text>
       </View>
 
       <View style={myStyle.profiles}>
@@ -24,7 +22,7 @@ const SelectUser = () => {
             source={require('../images/profile.png')}
             style={myStyle.profileImage}
           />
-          <Text style={myStyle.profileText}>Gaurav</Text>
+          <Text style={myStyle.profileText}>{strings.profileNames[0]}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={myStyle.profileCard}
@@ -35,7 +33,7 @@ const SelectUser = () => {
             source={require('../images/user2.png')}
             style={myStyle.profileImage}
           />
-          <Text style={myStyle.profileText}>Friend</Text>
+          <Text style={myStyle.profileText}>{strings.profileNames[1]}</Text>
         </TouchableOpacity>
       </View>
       <TouchableOpacity style={myStyle.addProfileCard}>
@@ -44,7 +42,7 @@ const SelectUser = () => {
           style={myStyle.addProfile}
         />
       </TouchableOpacity>
-      <Text style={myStyle.addProfileText}>Add Profile</Text>
+      <Text style={myStyle.addProfileText}>{strings.addProfile}</Text>
     </View>
   );
 };
@@ -113,4 +111,5 @@ const myStyle = StyleSheet.create({
     marginTop: 15,
     fontSize: 18,
   },
+  editText: {position: 'absolute', right: 20, top: 18},
 });
